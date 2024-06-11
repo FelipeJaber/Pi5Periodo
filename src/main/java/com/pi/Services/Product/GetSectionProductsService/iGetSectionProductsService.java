@@ -5,5 +5,5 @@ import org.springframework.stereotype.Service;
 @Service
 public interface iGetSectionProductsService {
 
-    public String getSectionProducts(String section);
+    String getSectionProducts(String section);
 }

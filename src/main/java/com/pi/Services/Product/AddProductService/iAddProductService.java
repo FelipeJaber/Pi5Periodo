@@ -6,5 +6,5 @@ import org.springframework.stereotype.Service;
 @Service
 public interface iAddProductService {
 
-    public void addProduct(AddProductRecord addProductRecord)throws Exception;
+    void addProduct(AddProductRecord addProductRecord)throws Exception;
 }

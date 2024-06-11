@@ -5,5 +5,5 @@ import org.springframework.stereotype.Service;
 
 @Service
 public interface iUpdateUserService {
-    public void updateUser(UpdateUserRecord updateUserRecord) throws Exception;
+    void updateUser(UpdateUserRecord updateUserRecord) throws Exception;
 }

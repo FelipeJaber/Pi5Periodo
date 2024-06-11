@@ -8,8 +8,8 @@ import com.pi.Services.JWT.JWTServices;
 import com.pi.Services.JWT.iJWTServices;
 import com.pi.Services.Validations.Cpf.CpfValidationService;
 import com.pi.Services.Validations.Cpf.iCpfValidationService;
-import com.pi.Services.Validations.Phone.PhoneValidationService;
-import com.pi.Services.Validations.Phone.iPhoneValidationService;
+import com.pi.Services.Validations.PhoneNumber.PhoneNumberValidationService;
+import com.pi.Services.Validations.PhoneNumber.iPhoneNumberValidationService;
 import com.pi.Session.UserSessionSingleton;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,12 +18,12 @@ import org.springframework.stereotype.Service;
 public class UpdateUserService implements iUpdateUserService{
 
     iCpfValidationService cpfValidationService;
-    iPhoneValidationService phoneValidationService;
+    iPhoneNumberValidationService phoneValidationService;
     iJWTServices jwtService;
     UserRepository userRepository;
 
     @Autowired
-    public UpdateUserService(CpfValidationService cpfValidationService, PhoneValidationService phoneValidationService, JWTServices jwtService, UserRepository userRepository) {
+    public UpdateUserService(CpfValidationService cpfValidationService, PhoneNumberValidationService phoneValidationService, JWTServices jwtService, UserRepository userRepository) {
         this.cpfValidationService = cpfValidationService;
         this.phoneValidationService = phoneValidationService;
         this.jwtService = jwtService;

@@ -8,5 +8,5 @@ import java.util.UUID;
 @Service
 public interface iUpdateProductService {
 
-    public void updateProduct(UpdateProductRecord updateProductRecord, UUID idProduto) throws Exception;
+    void updateProduct(UpdateProductRecord updateProductRecord, UUID idProduto) throws Exception;
 }

@@ -5,5 +5,5 @@ import org.springframework.stereotype.Service;
 
 @Service
 public interface iGetUserService {
-    public String getUser(GetUserRecord getUserRecord) throws Exception;
+    String getUser(GetUserRecord getUserRecord) throws Exception;
 }

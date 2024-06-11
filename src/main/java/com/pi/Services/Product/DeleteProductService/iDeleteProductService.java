@@ -8,5 +8,5 @@ import java.util.UUID;
 @Service
 public interface iDeleteProductService {
 
-    public void deleteProduct(DeleteProductRecord deleteProductRecord, UUID productID) throws Exception;
+    void deleteProduct(DeleteProductRecord deleteProductRecord, UUID productID) throws Exception;
 }

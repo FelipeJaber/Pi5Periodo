@@ -34,7 +34,7 @@ public class CpfValidationService implements iCpfValidationService{
         sum = 0;
         weight = 10;
         for (i = 0; i < 9; i++) {
-            character = (int) (cpf.charAt(i) - 48);
+            character = cpf.charAt(i) - 48;
             sum = sum + (character * weight);
             weight = weight - 1;
         }
@@ -48,7 +48,7 @@ public class CpfValidationService implements iCpfValidationService{
         sum = 0;
         weight = 11;
         for (i = 0; i < 10; i++) {
-            character = (int) (cpf.charAt(i) - 48);
+            character = cpf.charAt(i) - 48;
             sum = sum + (character * weight);
             weight = weight - 1;
         }

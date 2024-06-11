@@ -5,5 +5,5 @@ import org.springframework.stereotype.Service;
 
 @Service
 public interface iDeleteUserService {
-    public void deleteUser(DeleteUserRecord deleteUserRecord) throws Exception;
+    void deleteUser(DeleteUserRecord deleteUserRecord) throws Exception;
 }

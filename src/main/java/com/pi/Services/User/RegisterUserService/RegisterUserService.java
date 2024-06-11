@@ -7,8 +7,8 @@ import com.pi.Services.JWT.JWTServices;
 import com.pi.Services.JWT.iJWTServices;
 import com.pi.Services.Validations.Cpf.CpfValidationService;
 import com.pi.Services.Validations.Cpf.iCpfValidationService;
-import com.pi.Services.Validations.Phone.PhoneValidationService;
-import com.pi.Services.Validations.Phone.iPhoneValidationService;
+import com.pi.Services.Validations.PhoneNumber.PhoneNumberValidationService;
+import com.pi.Services.Validations.PhoneNumber.iPhoneNumberValidationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,10 +18,10 @@ public class RegisterUserService implements iRegisterUserService{
     UserRepository userRepository;
     iJWTServices jwtService;
     iCpfValidationService cpfValidationService;
-    iPhoneValidationService phoneValidationService;
+    iPhoneNumberValidationService phoneValidationService;
 
     @Autowired
-    public RegisterUserService(UserRepository userRepository, JWTServices jwtService, CpfValidationService cpfValidationService, PhoneValidationService phoneValidationService) {
+    public RegisterUserService(UserRepository userRepository, JWTServices jwtService, CpfValidationService cpfValidationService, PhoneNumberValidationService phoneValidationService) {
         this.userRepository = userRepository;
         this.jwtService = jwtService;
         this.cpfValidationService = cpfValidationService;

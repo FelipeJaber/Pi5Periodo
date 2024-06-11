@@ -7,5 +7,5 @@ import java.util.UUID;
 @Service
 public interface iGetProductService {
 
-    public String getProduct(UUID idProduct) throws Exception;
+    String getProduct(UUID idProduct) throws Exception;
 }

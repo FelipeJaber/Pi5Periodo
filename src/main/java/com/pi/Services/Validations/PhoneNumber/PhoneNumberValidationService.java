@@ -1,4 +1,4 @@
-package com.pi.Services.Validations.Phone;
+package com.pi.Services.Validations.PhoneNumber;
 
 import com.pi.Models.UserModel;
 import com.pi.Repositories.UserRepository;
@@ -8,12 +8,12 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 
 @Service
-public class PhoneValidationService implements iPhoneValidationService{
+public class PhoneNumberValidationService implements iPhoneNumberValidationService {
 
     UserRepository userRepository;
 
     @Autowired
-    public PhoneValidationService(UserRepository userRepository) {
+    public PhoneNumberValidationService(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
@@ -27,9 +27,7 @@ public class PhoneValidationService implements iPhoneValidationService{
 
             String ddd = phone.substring(0, 2);
             int dddNumber = Integer.parseInt(ddd);
-            if (dddNumber >= 1 && dddNumber <= 99) {
-                return true;
-            }
+            return dddNumber >= 1 && dddNumber <= 99;
         }
         return false;
     }

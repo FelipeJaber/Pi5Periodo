@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 @Service
 public interface iCpfValidationService {
 
-    public boolean verifyIfCpfIsValid(String cpf) throws Exception;
-    public String formatCpf(String cpf) throws Exception;
-    public void verifyIfCPFAlreadyRegistered(String cpf) throws Exception;
+    boolean verifyIfCpfIsValid(String cpf) throws Exception;
+    String formatCpf(String cpf) throws Exception;
+    void verifyIfCPFAlreadyRegistered(String cpf) throws Exception;
 }
