@@ -1,4 +1,4 @@
-package com.pi.Services.Product;
+package com.pi.Services.Product.GetAllProductsService;
 
 import com.google.gson.Gson;
 import com.pi.Models.ProductModel;
@@ -7,10 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
-public class GetAllProductsService {
+public class GetAllProductsService implements iGetAllProductsService{
 
     ProductRepository productRepository;
     Gson gson;

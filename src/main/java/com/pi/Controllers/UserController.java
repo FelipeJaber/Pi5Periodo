@@ -4,10 +4,14 @@ import com.pi.Records.User.DeleteUserRecord;
 import com.pi.Records.User.GetUserRecord;
 import com.pi.Records.User.RegisterUserRecord;
 import com.pi.Records.User.UpdateUserRecord;
-import com.pi.Services.User.DeleteUserService;
-import com.pi.Services.User.GetUserService;
-import com.pi.Services.User.RegisterUserService;
-import com.pi.Services.User.UpdateUserService;
+import com.pi.Services.User.DeleteUserService.DeleteUserService;
+import com.pi.Services.User.DeleteUserService.iDeleteUserService;
+import com.pi.Services.User.GetUserService.GetUserService;
+import com.pi.Services.User.GetUserService.iGetUserService;
+import com.pi.Services.User.RegisterUserService.RegisterUserService;
+import com.pi.Services.User.RegisterUserService.iRegisterUserService;
+import com.pi.Services.User.UpdateUserService.UpdateUserService;
+import com.pi.Services.User.UpdateUserService.iUpdateUserService;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,10 +23,10 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/user")
 public class UserController {
 
-    DeleteUserService deleteUserService;
-    GetUserService getUserService;
-    RegisterUserService registerUserService;
-    UpdateUserService updateUserService;
+    iDeleteUserService deleteUserService;
+    iGetUserService getUserService;
+    iRegisterUserService registerUserService;
+    iUpdateUserService updateUserService;
 
     @Autowired
     public UserController(DeleteUserService deleteUserService, GetUserService getUserService, RegisterUserService registerUserService, UpdateUserService updateUserService) {

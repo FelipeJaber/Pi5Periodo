@@ -1,9 +1,10 @@
-package com.pi.Services.User;
+package com.pi.Services.User.RegisterUserService;
 
 import com.pi.Models.UserModel;
 import com.pi.Records.User.RegisterUserRecord;
 import com.pi.Repositories.UserRepository;
-import com.pi.Services.JWT.JWTService;
+import com.pi.Services.JWT.JWTServices;
+import com.pi.Services.JWT.iJWTServices;
 import com.pi.Services.Validations.Cpf.CpfValidationService;
 import com.pi.Services.Validations.Cpf.iCpfValidationService;
 import com.pi.Services.Validations.Phone.PhoneValidationService;
@@ -12,15 +13,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class RegisterUserService {
+public class RegisterUserService implements iRegisterUserService{
 
     UserRepository userRepository;
-    JWTService jwtService;
+    iJWTServices jwtService;
     iCpfValidationService cpfValidationService;
     iPhoneValidationService phoneValidationService;
 
     @Autowired
-    public RegisterUserService(UserRepository userRepository, JWTService jwtService, CpfValidationService cpfValidationService, PhoneValidationService phoneValidationService) {
+    public RegisterUserService(UserRepository userRepository, JWTServices jwtService, CpfValidationService cpfValidationService, PhoneValidationService phoneValidationService) {
         this.userRepository = userRepository;
         this.jwtService = jwtService;
         this.cpfValidationService = cpfValidationService;

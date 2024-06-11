@@ -2,7 +2,8 @@ package com.pi.Session;
 
 import com.pi.Models.UserModel;
 import com.pi.Repositories.UserRepository;
-import com.pi.Services.JWT.JWTService;
+import com.pi.Services.JWT.JWTServices;
+import com.pi.Services.JWT.iJWTServices;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -18,10 +19,10 @@ public class UserSessionSingleton {
     private boolean authenticated;
 
     private final UserRepository userRepository;
-    private final JWTService jwtService;
+    private final iJWTServices jwtService;
 
     @Autowired
-    public UserSessionSingleton(UserRepository userRepository, JWTService jwtService) {
+    public UserSessionSingleton(UserRepository userRepository, JWTServices jwtService) {
         this.userRepository = userRepository;
         this.jwtService = jwtService;
         this.authenticated = false;

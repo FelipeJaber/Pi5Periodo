@@ -11,11 +11,10 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
-import java.util.Optional;
 import java.util.UUID;
 
 @Service
-public class JWTService {
+public class JWTServices implements iJWTServices{
 
     @Value("${jwt.secret}")
     private String secret;
@@ -26,7 +25,7 @@ public class JWTService {
     UserRepository userRepository;
 
     @Autowired
-    public JWTService(UserRepository userRepository) {
+    public JWTServices(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
@@ -40,22 +39,6 @@ public class JWTService {
                 .setExpiration(expiryDate)
                 .signWith(SignatureAlgorithm.HS512, secret)
                 .compact();
-    }
-
-    public UserModel getUserFromToken(String token) throws Exception {
-        Jws<Claims> claims = Jwts.parser()
-                .setSigningKey(secret)
-                .build()
-                .parseClaimsJws(token);
-
-        String userIdString = claims.getPayload().getSubject();
-        UUID userId = UUID.fromString(userIdString);
-        Optional<UserModel> userModelDB = userRepository.findById(userId);
-
-        if(userModelDB.isEmpty()) throw new Exception("TOKEN INVALIDO");
-
-        return userModelDB.get();
-
     }
 
     public UUID getUuidFromToken(String token) throws Exception {

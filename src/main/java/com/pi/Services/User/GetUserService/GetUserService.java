@@ -1,18 +1,19 @@
-package com.pi.Services.User;
+package com.pi.Services.User.GetUserService;
 
 import com.pi.Records.User.GetUserRecord;
-import com.pi.Services.JWT.JWTService;
+import com.pi.Services.JWT.JWTServices;
+import com.pi.Services.JWT.iJWTServices;
 import com.pi.Session.UserSessionSingleton;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class GetUserService {
+public class GetUserService implements iGetUserService{
 
-    JWTService jwtService;
+    iJWTServices jwtService;
 
     @Autowired
-    public GetUserService(JWTService jwtService) {
+    public GetUserService(JWTServices jwtService) {
         this.jwtService = jwtService;
     }
 

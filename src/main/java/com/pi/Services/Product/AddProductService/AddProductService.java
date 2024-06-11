@@ -1,12 +1,12 @@
-package com.pi.Services.Product;
+package com.pi.Services.Product.AddProductService;
 
 import com.pi.Enums.UserRolesEnum;
 import com.pi.Models.ProductModel;
 import com.pi.Models.UserModel;
 import com.pi.Records.Product.AddProductRecord;
-import com.pi.Records.User.GetUserRecord;
 import com.pi.Repositories.ProductRepository;
-import com.pi.Services.JWT.JWTService;
+import com.pi.Services.JWT.JWTServices;
+import com.pi.Services.JWT.iJWTServices;
 import com.pi.Session.UserSessionSingleton;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,13 +14,13 @@ import org.springframework.stereotype.Service;
 import java.util.Objects;
 
 @Service
-public class AddProductService {
+public class AddProductService implements iAddProductService{
 
     ProductRepository productRepository;
-    JWTService jwtService;
+    iJWTServices jwtService;
 
     @Autowired
-    public AddProductService(ProductRepository productRepository, JWTService jwtService) {
+    public AddProductService(ProductRepository productRepository, JWTServices jwtService) {
         this.productRepository = productRepository;
         this.jwtService = jwtService;
     }

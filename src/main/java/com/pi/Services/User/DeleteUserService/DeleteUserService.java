@@ -1,4 +1,4 @@
-package com.pi.Services.User;
+package com.pi.Services.User.DeleteUserService;
 
 import com.pi.Records.User.DeleteUserRecord;
 import com.pi.Repositories.UserRepository;
@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class DeleteUserService {
+public class DeleteUserService implements iDeleteUserService {
 
     UserRepository userRepository;
 

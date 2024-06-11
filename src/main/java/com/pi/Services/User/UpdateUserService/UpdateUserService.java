@@ -1,10 +1,11 @@
-package com.pi.Services.User;
+package com.pi.Services.User.UpdateUserService;
 
 import com.pi.Enums.UserRolesEnum;
 import com.pi.Models.UserModel;
 import com.pi.Records.User.UpdateUserRecord;
 import com.pi.Repositories.UserRepository;
-import com.pi.Services.JWT.JWTService;
+import com.pi.Services.JWT.JWTServices;
+import com.pi.Services.JWT.iJWTServices;
 import com.pi.Services.Validations.Cpf.CpfValidationService;
 import com.pi.Services.Validations.Cpf.iCpfValidationService;
 import com.pi.Services.Validations.Phone.PhoneValidationService;
@@ -14,15 +15,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UpdateUserService {
+public class UpdateUserService implements iUpdateUserService{
 
     iCpfValidationService cpfValidationService;
     iPhoneValidationService phoneValidationService;
-    JWTService jwtService;
+    iJWTServices jwtService;
     UserRepository userRepository;
 
     @Autowired
-    public UpdateUserService(CpfValidationService cpfValidationService, PhoneValidationService phoneValidationService, JWTService jwtService, UserRepository userRepository) {
+    public UpdateUserService(CpfValidationService cpfValidationService, PhoneValidationService phoneValidationService, JWTServices jwtService, UserRepository userRepository) {
         this.cpfValidationService = cpfValidationService;
         this.phoneValidationService = phoneValidationService;
         this.jwtService = jwtService;

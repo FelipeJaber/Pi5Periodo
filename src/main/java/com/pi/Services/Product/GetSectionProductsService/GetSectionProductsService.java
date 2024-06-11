@@ -1,4 +1,4 @@
-package com.pi.Services.Product;
+package com.pi.Services.Product.GetSectionProductsService;
 
 import com.google.gson.Gson;
 import com.pi.Models.ProductModel;
@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class GetSectionProductsService {
+public class GetSectionProductsService implements iGetSectionProductsService{
 
     ProductRepository productRepository;
     Gson gson;

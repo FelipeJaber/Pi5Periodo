@@ -3,12 +3,22 @@ package com.pi.Controllers;
 import com.pi.Records.Product.AddProductRecord;
 import com.pi.Records.Product.DeleteProductRecord;
 import com.pi.Records.Product.UpdateProductRecord;
-import com.pi.Services.Product.*;
+import com.pi.Services.Product.AddProductService.AddProductService;
+import com.pi.Services.Product.AddProductService.iAddProductService;
+import com.pi.Services.Product.DeleteProductService.DeleteProductService;
+import com.pi.Services.Product.DeleteProductService.iDeleteProductService;
+import com.pi.Services.Product.GetAllProductsService.GetAllProductsService;
+import com.pi.Services.Product.GetAllProductsService.iGetAllProductsService;
+import com.pi.Services.Product.GetProductService.GetProductService;
+import com.pi.Services.Product.GetProductService.iGetProductService;
+import com.pi.Services.Product.GetSectionProductsService.GetSectionProductsService;
+import com.pi.Services.Product.GetSectionProductsService.iGetSectionProductsService;
+import com.pi.Services.Product.UpdateProductService.UpdateProductService;
+import com.pi.Services.Product.UpdateProductService.iUpdateProductService;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import org.apache.coyote.Response;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,12 +29,12 @@ import java.util.UUID;
 @RequestMapping("/products")
 public class ProductController {
 
-    private final AddProductService addProductService;
-    private final DeleteProductService deleteProductService;
-    private final GetAllProductsService getAllProductsService;
-    private final GetProductService getProductService;
-    private final GetSectionProductsService getSectionProductsService;
-    private final UpdateProductService updateProductService;
+    private final iAddProductService addProductService;
+    private final iDeleteProductService deleteProductService;
+    private final iGetAllProductsService getAllProductsService;
+    private final iGetProductService getProductService;
+    private final iGetSectionProductsService getSectionProductsService;
+    private final iUpdateProductService updateProductService;
 
     public ProductController(
             AddProductService addProductService,

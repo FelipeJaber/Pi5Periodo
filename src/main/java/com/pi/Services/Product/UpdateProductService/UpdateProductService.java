@@ -1,9 +1,8 @@
-package com.pi.Services.Product;
+package com.pi.Services.Product.UpdateProductService;
 
 import com.pi.Enums.UserRolesEnum;
 import com.pi.Models.ProductModel;
 import com.pi.Models.UserModel;
-import com.pi.Records.Product.AddProductRecord;
 import com.pi.Records.Product.UpdateProductRecord;
 import com.pi.Repositories.ProductRepository;
 import com.pi.Session.UserSessionSingleton;
@@ -15,7 +14,7 @@ import java.util.Optional;
 import java.util.UUID;
 
 @Service
-public class UpdateProductService {
+public class UpdateProductService implements iUpdateProductService{
 
     ProductRepository productRepository;
 
