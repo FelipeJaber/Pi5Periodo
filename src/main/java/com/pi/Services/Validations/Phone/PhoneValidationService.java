@@ -19,12 +19,24 @@ public class PhoneValidationService implements iPhoneValidationService{
 
     @Override
     public boolean verifyIfPhoneIsValid(String phone) throws Exception {
-        return true;
+        if (phone.length() == 10 || phone.length() == 11) {
+
+            if (phone.charAt(0) == '0') {
+                phone = phone.substring(1);
+            }
+
+            String ddd = phone.substring(0, 2);
+            int dddNumber = Integer.parseInt(ddd);
+            if (dddNumber >= 1 && dddNumber <= 99) {
+                return true;
+            }
+        }
+        return false;
     }
 
     @Override
     public String formatPhone(String phone) throws Exception {
-        return "";
+        return phone.replaceAll("[^\\d]", "");
     }
 
     @Override

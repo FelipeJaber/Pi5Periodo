@@ -17,10 +17,10 @@ import java.util.UUID;
 @Service
 public class JWTService {
 
-    @Value("${jwt.secret}") // Você pode armazenar a chave em um arquivo de propriedades
+    @Value("${jwt.secret}")
     private String secret;
 
-    @Value("${jwt.expiration}") // Defina a expiração do token em milissegundos
+    @Value("${jwt.expiration}")
     private long expiration;
 
     UserRepository userRepository;
