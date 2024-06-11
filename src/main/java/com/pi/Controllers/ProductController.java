@@ -8,6 +8,7 @@ import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import org.apache.coyote.Response;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -43,17 +44,21 @@ public class ProductController {
 
     @GetMapping("/{id}")
     public ResponseEntity<String> getProduct(@NotBlank @NotNull @PathVariable("id") String productId) {
-        return null;
+        try{
+            return ResponseEntity.ok(getProductService.getProduct(UUID.fromString(productId)));
+        }catch (Exception e){
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
     }
 
     @GetMapping("/section/{section}")
     public ResponseEntity<String> getSectionProducts(@NotBlank @NotNull @PathVariable("section") String section) {
-        return null;
+        return ResponseEntity.ok(getSectionProductsService.getSectionProducts(section));
     }
 
     @GetMapping("/all")
     public ResponseEntity<String> getAllProducts() {
-        return null;
+        return ResponseEntity.ok(getAllProductsService.getAllProducts());
     }
 
     @PostMapping("/add")
@@ -68,7 +73,12 @@ public class ProductController {
 
     @PutMapping("/update/{id}")
     public ResponseEntity<String> updateProduct(@PathVariable("id") String productId, @Valid @RequestBody UpdateProductRecord updateProductRecord) {
-        return null;
+        try{
+            updateProductService.updateProduct(updateProductRecord, UUID.fromString(productId));
+            return ResponseEntity.ok("PRODUTO ALTERADO COM SUCESSO");
+        }catch (Exception e){
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
     }
 
     @DeleteMapping("/delete/{id}")
