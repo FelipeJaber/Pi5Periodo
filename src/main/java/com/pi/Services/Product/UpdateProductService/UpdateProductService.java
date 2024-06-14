@@ -35,7 +35,7 @@ public class UpdateProductService implements iUpdateProductService{
         ProductModel newProduct = dbProductModel.get();
         newProduct.setName(updateProductRecord.name());
         newProduct.setPrice(updateProductRecord.price());
-        newProduct.setStock(updateProductRecord.stock());
+        newProduct.setQuantity(updateProductRecord.stock());
         newProduct.setDescription(updateProductRecord.description());
         newProduct.setSection(updateProductRecord.section());
         productRepository.save(newProduct);

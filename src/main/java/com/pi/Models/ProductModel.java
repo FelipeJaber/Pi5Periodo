@@ -22,8 +22,8 @@ public class ProductModel {
     float price;
     @Column(name = "product_section", nullable = false)
     String section;
-    @Column(name = "product_stock", nullable = false)
-    int stock;
+    @Column(name = "product_quantity", nullable = false)
+    int quantity;
 
     public ProductModel(UUID productId, String name, String description, float price, String section, int quantity) {
         this.productId = productId;
@@ -31,14 +31,14 @@ public class ProductModel {
         this.description = description;
         this.price = price;
         this.section = section;
-        this.stock = quantity;
+        this.quantity = quantity;
     }
 
     public ProductModel(AddProductRecord addProductRecord){
         this.description = addProductRecord.description();
         this.name = addProductRecord.name();
         this.price = addProductRecord.price();
-        this.stock = addProductRecord.stock();
+        this.quantity = addProductRecord.stock();
         this.section = addProductRecord.section();
     }
 
@@ -46,7 +46,7 @@ public class ProductModel {
         this.description = updateProductRecord.description();
         this.name = updateProductRecord.name();
         this.price = updateProductRecord.price();
-        this.stock = updateProductRecord.stock();
+        this.quantity = updateProductRecord.stock();
         this.section = updateProductRecord.section();
         this.productId = productId;
     }
@@ -98,11 +98,11 @@ public class ProductModel {
         this.section = section;
     }
 
-    public int getStock() {
-        return stock;
+    public int getQuantity() {
+        return quantity;
     }
 
-    public void setStock(int stock) {
-        this.stock = stock;
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 }

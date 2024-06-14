@@ -19,6 +19,7 @@ import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -36,6 +37,7 @@ public class ProductController {
     private final iGetSectionProductsService getSectionProductsService;
     private final iUpdateProductService updateProductService;
 
+    @Autowired
     public ProductController(
             AddProductService addProductService,
             DeleteProductService deleteProductService,
