@@ -17,7 +17,6 @@ public class UserSessionSingleton {
     private static UserSessionSingleton instance;
     private UserModel userModel;
     private boolean authenticated;
-
     private final UserRepository userRepository;
     private final iJWTServices jwtService;
 
