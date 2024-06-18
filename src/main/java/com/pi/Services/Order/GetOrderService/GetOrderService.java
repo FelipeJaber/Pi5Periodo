@@ -6,6 +6,7 @@ import com.pi.Records.Order.GetOrderRecord;
 import com.pi.Repositories.OrderRepository;
 
 import java.util.Optional;
+import java.util.UUID;
 
 public class GetOrderService implements iGetOrderServices{
 
@@ -13,12 +14,12 @@ public class GetOrderService implements iGetOrderServices{
     Gson gson;
 
     @Override
-    public String getOrder(GetOrderRecord getOrderRecord) throws Exception {
-        return getOrderInfos(getOrderRecord);
+    public String getOrder(GetOrderRecord getOrderRecord, UUID orderId) throws Exception {
+        return getOrderInfos(getOrderRecord, orderId);
     }
 
-    private String getOrderInfos(GetOrderRecord getOrderRecord) throws Exception{
-        Optional<OrderModel> dbOrderModel = orderRepository.findById(getOrderRecord.orderId());
+    private String getOrderInfos(GetOrderRecord getOrderRecord, UUID orderId) throws Exception{
+        Optional<OrderModel> dbOrderModel = orderRepository.findById(orderId);
         if(dbOrderModel.isEmpty())throw new Exception("ORDER NOT FOUND");
         return gson.toJson(dbOrderModel.get());
     }

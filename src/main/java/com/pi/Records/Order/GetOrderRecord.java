@@ -5,5 +5,5 @@ import jakarta.validation.constraints.NotNull;
 
 import java.util.UUID;
 
-public record GetOrderRecord(@NotBlank @NotNull UUID orderId) {
+public record GetOrderRecord(@NotBlank @NotNull String token) {
 }

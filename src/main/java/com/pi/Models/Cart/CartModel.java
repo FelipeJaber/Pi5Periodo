@@ -13,4 +13,20 @@ public class CartModel {
     private UUID cartId;
     @Column(name = "cart_type", nullable = false, unique = true, updatable = false)
     private String type;
+
+    public UUID getCartId() {
+        return cartId;
+    }
+
+    public void setCartId(UUID cartId) {
+        this.cartId = cartId;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
 }
